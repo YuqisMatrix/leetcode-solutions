@@ -18,4 +18,17 @@ class Solution:
                     dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
 
         return dp[m][n]
+if __name__ == "__main__":
+    sol = Solution()
+    
+    # Example 1
+    print(sol.longestCommonSubsequence("abcde", "ace"))  
+    # Expected output: 3  ("ace")
 
+    # Example 2
+    print(sol.longestCommonSubsequence("abc", "abc"))   
+    # Expected output: 3  ("abc")
+
+    # Example 3
+    print(sol.longestCommonSubsequence("abc", "def"))   
+    # Expected output: 0  (no common subsequence)
