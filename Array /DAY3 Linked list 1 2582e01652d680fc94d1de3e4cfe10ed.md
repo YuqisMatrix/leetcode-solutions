@@ -29,6 +29,18 @@
 链表中的节点在内存中不是连续分布的 ，而是散乱分布在内存中的某地址上，分配机制取决于操作系统的内存管理
 
 ### ARRAY VS LINKED LIST
+content = """# Linked List vs Array Operations
+
+| Operation       | Linked List | Array |
+|-----------------|-------------|-------|
+| **Add (Insert)** | O(1) at head/tail (if pointer known); O(n) at arbitrary position | O(1) at end (amortized for dynamic array); O(n) at arbitrary position (due to shifting) |
+| **Delete**      | O(1) if node pointer is known; O(n) if searching is required | O(n) (due to shifting elements) |
+| **Lookup (Access by Index)** | O(n) (must traverse from head) | O(1) (direct index access) |
+| **Search (by Value)** | O(n) | O(n) |
+"""
+
+
+
 
 **Advantages and disadvantages compared to arrays**
 
