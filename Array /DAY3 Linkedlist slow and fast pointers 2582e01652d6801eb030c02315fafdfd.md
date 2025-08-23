@@ -281,7 +281,70 @@ self.size += 1
             self.size -= 1
     ```
     
-- edge case: index = 0, so we do not run the for loop, curr is dummy node, dummy [node.next](http://node.next) is head.next, so we delete the head node.
+- edge case: index = 0, so we do not run the for loop, curr is dummy node, dummy [node.next] is head.next, so we delete the head node.
+
+```python
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class MyLinkedList:
+
+    def __init__(self):
+        self.dummy = ListNode(0)
+        self.size = 0
+
+    def get(self, index: int) -> int:
+        if index < 0 or index >= self.size:
+            return -1
+        curr = self.dummy.next
+        for _ in range(index):
+            curr = curr.next
+        return curr.val
+
+    def addAtHead(self, val: int) -> None:
+        headnode = ListNode(val)
+        headnode.next = self.dummy.next
+        self.dummy.next = headnode
+        self.size += 1
+
+    def addAtTail(self, val: int) -> None:
+        curr = self.dummy
+        for _ in range(self.size):
+            curr = curr.next
+        tailnode = ListNode(val)
+        curr.next = tailnode
+        self.size += 1
+
+    def addAtIndex(self, index: int, val: int) -> None:
+        if index < 0 or index > self.size:
+            return
+        curr = self.dummy
+        for _ in range(index):
+            curr = curr.next
+        n = ListNode(val)
+        n.next = curr.next
+        curr.next = n
+        self.size += 1
+
+    def deleteAtIndex(self, index: int) -> None:
+        if index < 0 or index >= self.size:
+            return
+        curr = self.dummy
+        for _ in range(index):
+            curr = curr.next
+        curr.next = curr.next.next
+        self.size -= 1
+```
+
+
+
+
+
+
+
 
 ---
 
